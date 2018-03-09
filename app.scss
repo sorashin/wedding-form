@@ -1,0 +1,16 @@
+@import "@material/button/mdc-button";
+@import "@material/textfield/mdc-text-field";
+
+
+body {
+  color: blue;
+}
+
+.foo-button {
+  @include mdc-button-ink-color(teal);
+  @include mdc-states(teal);
+}
+.my-input{
+  // @include mdc-text-field--textarea;
+  @include mdc-text-field-label-color(teal);
+}
