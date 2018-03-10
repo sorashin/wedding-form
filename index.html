@@ -8,32 +8,34 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   <link rel="stylesheet" href="node_modules/material-components-web/dist/material-components-web.css">
   <link rel="stylesheet" href="bundle.css">
-  <link rel="stylesheet" href="text-field.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script type="text/javascript" src="dist/jquery.serialize-object.js"></script>
-  <script type="text/javascript" src="dist/ready.js"></script>
   <title>Document</title>
 </head>
 <body　class="mdc-typography">
     <form id="test-form">
-      <div class="my-input mdc-text-field" data-mdc-auto-init="MDCTextField">
-        <input type="text" id="my-text-field" class="mdc-text-field__input" name="name" placeholder="" aria-controls="my-text-field-helper-text"/>
-        <label for="my-text-field" class="mdc-floating-label">Name</label>
-        <div class="mdc-line-ripple"></div>
-      </div>
-
-      <div class="my-input mdc-text-field" data-mdc-auto-init="MDCTextField">
-        <input type="text" id="my-text-field" class="mdc-text-field__input" name="mail" placeholder="" aria-controls="my-text-field-helper-text"/>
-        <label for="my-text-field" class="mdc-floating-label">連絡先</label>
-        <div class="mdc-line-ripple"></div>
-      </div>
-
-      <div class="my-input mdc-text-field" data-mdc-auto-init="MDCTextField">
-        <input type="text" id="my-text-field" class="mdc-text-field__input" name="yesno" placeholder="" aria-controls="my-text-field-helper-text"/>
-        <label for="my-text-field" class="mdc-floating-label">参加不参加</label>
-        <div class="mdc-line-ripple"></div>
-      </div>
-      <button id="submit-form" class="foo-button mdc-button">Button</button>
+      <section class="my-text-wrap">
+        <div class="my-input mdc-text-field" data-mdc-auto-init="MDCTextField">
+          <input type="text" id="my-text-field" class="mdc-text-field__input" name="name" placeholder="" aria-controls="my-text-field-helper-text"/>
+          <label for="my-text-field" class="mdc-floating-label mdc-typography">名前</label>
+          <div class="mdc-line-ripple"></div>
+        </div>
+      </section>
+      <section class="my-text-wrap">
+        <div class="my-input mdc-text-field" data-mdc-auto-init="MDCTextField">
+          <input type="text" id="my-text-field" class="mdc-text-field__input" name="mail" placeholder="" aria-controls="my-text-field-helper-text"/>
+          <label for="my-text-field" class="mdc-floating-label mdc-typography">連絡先</label>
+          <div class="mdc-line-ripple"></div>
+        </div>
+      </section>
+      <section class="my-text-wrap">
+        <div class="my-input mdc-text-field" data-mdc-auto-init="MDCTextField">
+          <input type="text" id="my-text-field" class="mdc-text-field__input" name="yesno" placeholder="" aria-controls="my-text-field-helper-text"/>
+          <label for="my-text-field" class="mdc-floating-label mdc-typography">備考</label>
+          <div class="mdc-line-ripple"></div>
+        </div>
+      </section>
+      <button id="submit-form" class="foo-button mdc-button">送信</button>
     </form>
 
 

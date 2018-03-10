@@ -1,10 +1,8 @@
+// common
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");
+// import material library
 @import "@material/button/mdc-button";
 @import "@material/textfield/mdc-text-field";
-
-
-body {
-  color: blue;
-}
 
 .foo-button {
   @include mdc-button-ink-color(teal);
@@ -13,4 +11,7 @@ body {
 .my-input{
   // @include mdc-text-field--textarea;
   @include mdc-text-field-label-color(teal);
+}
+.my-text-wrap{
+  margin: 20px 10px 10px 10px;
 }
