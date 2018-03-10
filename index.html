@@ -29,8 +29,30 @@
         </div>
       </section>
       <section class="my-text-wrap">
+        <div class="mdc-form-field">
+            <div class="mdc-radio" data-demo-no-js>
+              <input class="mdc-radio__native-control" type="radio" id="ex1-default-radio1" value="参加" checked name="yesno">
+              <div class="mdc-radio__background">
+                <div class="mdc-radio__outer-circle"></div>
+                <div class="mdc-radio__inner-circle"></div>
+              </div>
+            </div>
+            <label id="ex1-default-radio1-label" for="ex1-default-radio1">出席</label>
+          </div>
+          <div class="mdc-form-field">
+            <div class="mdc-radio" data-demo-no-js>
+              <input class="mdc-radio__native-control" type="radio" id="ex1-default-radio2" value="不参加" name="yesno">
+              <div class="mdc-radio__background">
+                <div class="mdc-radio__outer-circle"></div>
+                <div class="mdc-radio__inner-circle"></div>
+              </div>
+            </div>
+            <label id="ex1-default-radio2-label" for="ex1-default-radio2">不参加</label>
+          </div>
+      </section>
+      <section class="my-text-wrap">
         <div class="my-input mdc-text-field mdc-text-field--textarea" data-mdc-auto-init="MDCTextField">
-          <input type="text" id="my-text-field" class="mdc-text-field__input" name="yesno" placeholder="" aria-controls="my-text-field-helper-text"/>
+          <textarea type="text" id="my-text-field" class="mdc-text-field__input" rows="4" cols="40" name="comment" placeholder="" aria-controls="my-text-field-helper-text"/></textarea>
           <label for="my-text-field" class="mdc-floating-label">備考</label>
           <div class="mdc-line-ripple"></div>
         </div>
