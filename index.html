@@ -10,26 +10,40 @@
   <link rel="stylesheet" href="bundle.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script type="text/javascript" src="dist/jquery.serialize-object.js"></script>
+  <script src="dist/parallax-background.min.js"></script>
   <title>Document</title>
 </head>
 <body class="mdc-typography">
+
     <div class="hero">
-      <video controls id="v" width="800px" height="600px" autoplay="true">
-        <source src="images/mail.mp4" width="800px" height="600px">
+      <video controls id="v" autoplay="true">
+        <source src="images/mail_sp.mp4">
       </video>
-      <!-- <button onClick="drawVideo()">drawImage</button> -->
-      <canvas id="c" width="800px" height="600px"></canvas>
+      <canvas id="c"></canvas>
+    </div>
+    <div class="parallax"
+     data-parallax-bg-image="images/lemon.png"
+     data-parallax-bg-position="center center"
+     data-parallax-bg-size="contain"
+     data-parallax-speed="0.4"
+     data-parallax-direction="down"
+    >
+      <p class="block-head01">
+        <img src="./images/save-the-date.png" alt="save the date 6/9 13:00~">
+      </p>
+      <p class="block-text01">この度、中島慎太郎と赤松萌は家族になることになりました。</p>
+    </div>
     </div>
     <form id="test-form">
       <section class="my-text-wrap">
-        <div class="my-input mdc-text-field" data-mdc-auto-init="MDCTextField">
+        <div class="my-input mdc-text-field mdc-text-field--fullwidth" data-mdc-auto-init="MDCTextField">
           <input type="text" id="my-text-field" class="mdc-text-field__input" name="name" placeholder="" aria-controls="my-text-field-helper-text"/>
           <label for="my-text-field" class="mdc-floating-label">名前</label>
           <div class="mdc-line-ripple"></div>
         </div>
       </section>
       <section class="my-text-wrap">
-        <div class="my-input mdc-text-field" data-mdc-auto-init="MDCTextField">
+        <div class="my-input mdc-text-field mdc-text-field--fullwidth" data-mdc-auto-init="MDCTextField">
           <input type="text" id="my-text-field" class="mdc-text-field__input" name="mail" placeholder="" aria-controls="my-text-field-helper-text"/>
           <label for="my-text-field" class="mdc-floating-label">連絡先</label>
           <div class="mdc-line-ripple"></div>
@@ -89,15 +103,64 @@
     </script>
     <script type="text/javascript">
       function drawVideo(){
+        var canvas = document.getElementById("c");
+        var w = $(window).width();
+        var h = $(window).height();
         var video = document.getElementById("v");
+        var sizeWidth, sizeHeight, drawX, drawY;
+        video.addEventListener('loadedmetadata', function() {
+            console.group('metadata読み込み後');
+            console.log('幅:', video.videoWidth); // 640
+            console.log('高さ:', video.videoHeight); // 360
+            console.log('長さ:', video.duration); // 12.074376
+            console.groupEnd();
+            //縦横の縮小率を求める
+            var ratioWidth = w / video.videoWidth;
+            var ratioHeight = h / video.videoHeight;
+            //縮小率の大きい方を使う
+            if (ratioWidth >= ratioHeight) {
+                var ratio = ratioWidth;
+                // console.log("ratio = ratioWidth");
+            } else {
+                var ratio = ratioHeight;
+                // console.log("ratio = ratioHeight");
+            }
 
-         setInterval(function(){
-           var canvas = document.getElementById("c");
-           console.log("function read");
-           canvas.getContext("2d").drawImage(video, 0, 0, 800, 600);
-         }, 1000/50);
+            //リサイズ後のピクセル数を計算（縦横に同じ比率をかける）
+            sizeWidth = Math.round(video.videoWidth * ratio);
+            sizeHeight = Math.round(video.videoHeight * ratio);
+            //中央値を求める
+            drawX = Math.round((w - sizeWidth) / 2);
+            drawY = Math.round((h - sizeHeight) / 2);
+
+            // console.log(sizeWidth, sizeHeight, drawX, drawY);
+            setInterval(function(){
+              canvas.getContext("2d").drawImage(video, drawX, drawY, sizeWidth, sizeHeight);
+            }, 1000/50);
+
+        });
+
+
+      }
+      function resizeCanvas(){
+        var heroW = $(window).width();
+        var heroH = $(window).height();
+        $('.hero').attr('width', heroW);
+        $('.hero').attr('height', heroH);
+        // var w = $('.hero').width();
+        // var h = $('.hero').height();
+        $('#c').attr('width', heroW);
+        $('#c').attr('height', heroH);
+        // console.log(heroH, heroW);
       }
       drawVideo();
+      $(window).on("load resize",function(){
+        resizeCanvas();
+        //パララックス効果を作る
+        $('.parallax').parallaxBackground();
+      });
+
+
     </script>
     <script src="node_modules/material-components-web/dist/material-components-web.js"></script>
     <script src="bundle.js"></script>
