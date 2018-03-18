@@ -15,43 +15,60 @@
 #v {
   display: none;
 }
+.button-wrap{
+  margin: 36px 0px 60px 0px;
+  text-align: center;
+}
 .foo-button {
   @include mdc-button-ink-color(teal);
   @include mdc-states(teal);
+  // @include mdc-button-container-fill-color(teal);
 }
 .my-input{
   // @include mdc-text-field--textarea;
   @include mdc-text-field-label-color(teal);
-  // width: 500px;
+  //SP
+  width: 100%;
 }
 .my-text-wrap{
   margin: 24px 16px 16px 16px;
 }
 .parallax {
 	width: 100%;
-	height: 480px;
+  //SP
+	// height: 480px;
 	background: #000000;
+}
+.block01{
+  background-color: #999999;
+}
+.block02{
+  background-color: #666666;
+  text-align: center;
+  color: #ffffff;
 }
 .block-head01{
   margin: 0px;
   text-align: center;
+  //SP
   img{
     margin-top: 50px;
     width: 294px;
     height: 50px;
-    // text-align: center;
   }
-  // &:before{
-  //   content: "";
-  //   display: block;
-  //   width: 294px;
-  //   height: 50px;
-  //   background: URL("./images/save-the-date.png") center center /cover no-repeat;
-  // }
 }
 .block-text01{
   margin: 50px 32px 50px 32px;
   color:#ffffff;
   text-align: center;
   font-size: 14px;
+}
+.block-text02{
+  margin-top: 36px;
+  &:first-child{
+    margin-top: 60px;
+  }
+  &:last-child{
+    margin-bottom: 60px;
+  }
 }

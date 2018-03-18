@@ -21,7 +21,7 @@
       </video>
       <canvas id="c"></canvas>
     </div>
-    <div class="parallax"
+    <div class="parallax block01"
      data-parallax-bg-image="images/lemon.png"
      data-parallax-bg-position="center center"
      data-parallax-bg-size="contain"
@@ -31,19 +31,32 @@
       <p class="block-head01">
         <img src="./images/save-the-date.png" alt="save the date 6/9 13:00~">
       </p>
-      <p class="block-text01">この度、中島慎太郎と赤松萌は家族になることになりました。</p>
+      <p class="block-text01">この度、中島慎太郎と赤松萌は家族になることになりました。<br><br>二人の新しいスタートを、お世話になったみなさんと一緒に切りたいと思い、大学の同級生でのお披露目パーティーを開くことといたしました。季節の食材を使ったフレンチフルコースと飲み放題、そしてインタラクティブなコンテンツでみなさんをお待ちしています。<br><br>期日は6月9日！スケジュールを開けてお待ちください！</p>
+    </div>
+    <div class="parallax block02"
+     data-parallax-bg-image="images/uwajima.png"
+     data-parallax-bg-position="center center"
+     data-parallax-bg-size="contain"
+     data-parallax-speed="0.4"
+     data-parallax-direction="down"
+    >
+      <p class="block-text02"><img src="./images/date.png" alt="DATE"><br>2018年6月9日</p>
+      <p class="block-text02"><img src="./images/place.png" alt="PLACE"><br>二子玉川naturam（現MARKT）</p>
+      <p class="block-text02"><img src="./images/fee.png" alt="FEE"><br>15000円</p>
+      <p class="block-text02"><img src="./images/dresscode.png" alt="DRESS CODE"><br>Tシャツ、ジーンズはご遠慮ください</p>
+
     </div>
     </div>
     <form id="test-form">
       <section class="my-text-wrap">
-        <div class="my-input mdc-text-field mdc-text-field--fullwidth" data-mdc-auto-init="MDCTextField">
+        <div class="my-input mdc-text-field" data-mdc-auto-init="MDCTextField">
           <input type="text" id="my-text-field" class="mdc-text-field__input" name="name" placeholder="" aria-controls="my-text-field-helper-text"/>
           <label for="my-text-field" class="mdc-floating-label">名前</label>
           <div class="mdc-line-ripple"></div>
         </div>
       </section>
       <section class="my-text-wrap">
-        <div class="my-input mdc-text-field mdc-text-field--fullwidth" data-mdc-auto-init="MDCTextField">
+        <div class="my-input mdc-text-field" data-mdc-auto-init="MDCTextField">
           <input type="text" id="my-text-field" class="mdc-text-field__input" name="mail" placeholder="" aria-controls="my-text-field-helper-text"/>
           <label for="my-text-field" class="mdc-floating-label">連絡先</label>
           <div class="mdc-line-ripple"></div>
@@ -78,7 +91,9 @@
           <div class="mdc-line-ripple"></div>
         </div>
       </section>
-      <button id="submit-form" class="foo-button mdc-button">送信</button>
+      <section class="button-wrap">
+        <button id="submit-form" class="foo-button mdc-button">送信</button>
+      </section>
     </form>
 
 
@@ -147,11 +162,9 @@
         var heroH = $(window).height();
         $('.hero').attr('width', heroW);
         $('.hero').attr('height', heroH);
-        // var w = $('.hero').width();
-        // var h = $('.hero').height();
+        $('.hero').css({'height':heroH});
         $('#c').attr('width', heroW);
         $('#c').attr('height', heroH);
-        // console.log(heroH, heroW);
       }
       drawVideo();
       $(window).on("load resize",function(){
