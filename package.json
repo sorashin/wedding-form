@@ -8,7 +8,7 @@
     "ie > 9"
   ],
   "scripts": {
-    "start": "webpack-dev-server --watch --progress --colors --useLocalIp"
+    "start": "webpack-dev-server --watch --progress --colors &&  webpack --config webpack.config.js"
   },
   "devDependencies": {
     "autoprefixer": "^8.1.0",

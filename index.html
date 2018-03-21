@@ -17,8 +17,8 @@
 
     <div class="hero">
       <video controls id="v">
-        <source src="images/mail_sp.mp4">
-        <source src="images/mail_sp.mebm">
+        <source src="images/fake.mp4"  type="video/mp4" poster=”http://webfeelfree.com/wp-content/uploads/2014/02/img_20140222.jpg”>
+        <source src="images/fake.mebm" type="video/webm" poster=”http://webfeelfree.com/wp-content/uploads/2014/02/img_20140222.jpg”>
       </video>
       <canvas id="c"></canvas>
     </div>
@@ -153,6 +153,7 @@
             setInterval(function(){
               canvas.getContext("2d").drawImage(video, drawX, drawY, sizeWidth, sizeHeight);
             }, 1000/50);
+              console.log("video played");
             //ビデオを再生
             video.play();
         });
