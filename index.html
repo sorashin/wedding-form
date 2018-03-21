@@ -6,18 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-  <link rel="stylesheet" href="node_modules/material-components-web/dist/material-components-web.css">
-  <link rel="stylesheet" href="bundle.css">
+  <link rel="stylesheet" href="css/material-components-web.min.css">
+  <link rel="stylesheet" href="css/bundle.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script type="text/javascript" src="dist/jquery.serialize-object.js"></script>
-  <script src="dist/parallax-background.min.js"></script>
+  <script type="text/javascript" src="js/jquery.serialize-object.js"></script>
+  <script src="js/parallax-background.min.js"></script>
   <title>Document</title>
 </head>
 <body class="mdc-typography">
 
     <div class="hero">
-      <video controls id="v" autoplay="true">
+      <video controls id="v">
         <source src="images/mail_sp.mp4">
+        <source src="images/mail_sp.mebm">
       </video>
       <canvas id="c"></canvas>
     </div>
@@ -29,7 +30,7 @@
      data-parallax-direction="down"
     >
       <p class="block-head01">
-        <img src="./images/save-the-date.png" alt="save the date 6/9 13:00~">
+        <img src="images/save-the-date.png" alt="save the date 6/9 13:00~">
       </p>
       <p class="block-text01">この度、中島慎太郎と赤松萌は家族になることになりました。<br><br>二人の新しいスタートを、お世話になったみなさんと一緒に切りたいと思い、大学の同級生でのお披露目パーティーを開くことといたしました。季節の食材を使ったフレンチフルコースと飲み放題、そしてインタラクティブなコンテンツでみなさんをお待ちしています。<br><br>期日は6月9日！スケジュールを開けてお待ちください！</p>
     </div>
@@ -40,10 +41,10 @@
      data-parallax-speed="0.4"
      data-parallax-direction="down"
     >
-      <p class="block-text02"><img src="./images/date.png" alt="DATE"><br>2018年6月9日</p>
-      <p class="block-text02"><img src="./images/place.png" alt="PLACE"><br>二子玉川naturam（現MARKT）</p>
-      <p class="block-text02"><img src="./images/fee.png" alt="FEE"><br>15000円</p>
-      <p class="block-text02"><img src="./images/dresscode.png" alt="DRESS CODE"><br>Tシャツ、ジーンズはご遠慮ください</p>
+      <p class="block-text02"><img src="images/date.png" alt="DATE" width="45px" height="10px"><br>2018年6月9日</p>
+      <p class="block-text02"><img src="images/place.png" alt="PLACE" width="58px" height="10px"><br>二子玉川naturam（現MARKT）</p>
+      <p class="block-text02"><img src="images/fee.png" alt="FEE" width="33px" height="10px"><br>15000円</p>
+      <p class="block-text02"><img src="images/dresscode.png" alt="DRESS CODE" width="102px" height="10px"><br>Tシャツ、ジーンズはご遠慮ください</p>
 
     </div>
     </div>
@@ -152,7 +153,8 @@
             setInterval(function(){
               canvas.getContext("2d").drawImage(video, drawX, drawY, sizeWidth, sizeHeight);
             }, 1000/50);
-
+            //ビデオを再生
+            video.play();
         });
 
 
@@ -169,14 +171,15 @@
       drawVideo();
       $(window).on("load resize",function(){
         resizeCanvas();
+
         //パララックス効果を作る
         $('.parallax').parallaxBackground();
       });
 
 
     </script>
-    <script src="node_modules/material-components-web/dist/material-components-web.js"></script>
-    <script src="bundle.js"></script>
+    <script src="js/material-components-web.min.js"></script>
+    <script src="js/bundle.js"></script>
     <script type="text/javascript">window.mdc.autoInit();</script>
 </body>
 
