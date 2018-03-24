@@ -14,39 +14,24 @@
   <title>Document</title>
 </head>
 <body class="mdc-typography">
-
+    <div class="contact_ripple"></div>
+    <p class="mail_icon">THANK YOU!</p>
     <div class="hero">
-      <video controls id="v">
-        <source src="images/fake.mp4"  type="video/mp4" poster=”http://webfeelfree.com/wp-content/uploads/2014/02/img_20140222.jpg”>
-        <source src="images/fake.mebm" type="video/webm" poster=”http://webfeelfree.com/wp-content/uploads/2014/02/img_20140222.jpg”>
-      </video>
-      <canvas id="c"></canvas>
+
     </div>
-    <div class="parallax block01"
-     data-parallax-bg-image="images/lemon.png"
-     data-parallax-bg-position="center center"
-     data-parallax-bg-size="contain"
-     data-parallax-speed="0.4"
-     data-parallax-direction="down"
-    >
+    <div class="block01">
       <p class="block-head01">
         <img src="images/save-the-date.png" alt="save the date 6/9 13:00~">
       </p>
-      <p class="block-text01">この度、中島慎太郎と赤松萌は家族になることになりました。<br><br>二人の新しいスタートを、お世話になったみなさんと一緒に切りたいと思い、大学の同級生でのお披露目パーティーを開くことといたしました。季節の食材を使ったフレンチフルコースと飲み放題、そしてインタラクティブなコンテンツでみなさんをお待ちしています。<br><br>期日は6月9日！スケジュールを開けてお待ちください！</p>
     </div>
-    <div class="parallax block02"
-     data-parallax-bg-image="images/uwajima.png"
-     data-parallax-bg-position="center center"
-     data-parallax-bg-size="contain"
-     data-parallax-speed="0.4"
-     data-parallax-direction="down"
-    >
-      <p class="block-text02"><img src="images/date.png" alt="DATE" width="45px" height="10px"><br>2018年6月9日</p>
-      <p class="block-text02"><img src="images/place.png" alt="PLACE" width="58px" height="10px"><br>二子玉川naturam（現MARKT）</p>
-      <p class="block-text02"><img src="images/fee.png" alt="FEE" width="33px" height="10px"><br>15000円</p>
-      <p class="block-text02"><img src="images/dresscode.png" alt="DRESS CODE" width="102px" height="10px"><br>Tシャツ、ジーンズはご遠慮ください</p>
-
+    <div class="block02">
+      <p class="block-text02">この度、中島慎太郎と赤松萌は2018年5月2日をもって、家族となることになりました。<br><br>２人の新しいスタートを、お世話になった皆さんと一緒に切るために、ゼミ生とその仲間たちで<br>ささやかなパーティーを開こうと思います。<br><br>2人の出身地愛媛の食材を織り交ぜた<br>フレンチフルコースと飲み放題、<br>そしてインタラクティブコンテンツで、<br>みなさんをお待ちしています。<br><br>期日は2018年6月9日！<br>よろしければスケジュールをあけてご参加ください。<br>みなさんにお会いできることを楽しみにしています。</p>
     </div>
+    <div class="block03">
+      <p class="block-text03"><img src="images/date.png" alt="DATE" width="45px" height="10px"><br>2018年6月9日</p>
+      <p class="block-text03"><img src="images/place.png" alt="PLACE" width="58px" height="10px"><br>二子玉川naturam（現MARKT）<a href="https://goo.gl/maps/br5NfDcLzh22" target="_blank">Map</a></p>
+      <p class="block-text03"><img src="images/fee.png" alt="FEE" width="33px" height="10px"><br>15000円</p>
+      <p class="block-text03"><img src="images/dresscode.png" alt="DRESS CODE" width="102px" height="10px"><br>Tシャツ、ジーンズはご遠慮ください</p>
     </div>
     <form id="test-form">
       <section class="my-text-wrap">
@@ -59,7 +44,7 @@
       <section class="my-text-wrap">
         <div class="my-input mdc-text-field" data-mdc-auto-init="MDCTextField">
           <input type="text" id="my-text-field" class="mdc-text-field__input" name="mail" placeholder="" aria-controls="my-text-field-helper-text"/>
-          <label for="my-text-field" class="mdc-floating-label">連絡先</label>
+          <label for="my-text-field" class="mdc-floating-label">連絡先メールアドレス</label>
           <div class="mdc-line-ripple"></div>
         </div>
       </section>
@@ -113,70 +98,46 @@
         dataType: "json",
         data: $form.serializeObject()
       }).success(function(){
-        alert("success");
+        // alert("ご回答ありがとうございました！");
+        ripple();
       });
       })
     </script>
     <script type="text/javascript">
-      function drawVideo(){
-        var canvas = document.getElementById("c");
-        var w = $(window).width();
-        var h = $(window).height();
-        var video = document.getElementById("v");
-        var sizeWidth, sizeHeight, drawX, drawY;
-        video.addEventListener('loadedmetadata', function() {
-            console.group('metadata読み込み後');
-            console.log('幅:', video.videoWidth); // 640
-            console.log('高さ:', video.videoHeight); // 360
-            console.log('長さ:', video.duration); // 12.074376
-            console.groupEnd();
-            //縦横の縮小率を求める
-            var ratioWidth = w / video.videoWidth;
-            var ratioHeight = h / video.videoHeight;
-            //縮小率の大きい方を使う
-            if (ratioWidth >= ratioHeight) {
-                var ratio = ratioWidth;
-                // console.log("ratio = ratioWidth");
-            } else {
-                var ratio = ratioHeight;
-                // console.log("ratio = ratioHeight");
-            }
-
-            //リサイズ後のピクセル数を計算（縦横に同じ比率をかける）
-            sizeWidth = Math.round(video.videoWidth * ratio);
-            sizeHeight = Math.round(video.videoHeight * ratio);
-            //中央値を求める
-            drawX = Math.round((w - sizeWidth) / 2);
-            drawY = Math.round((h - sizeHeight) / 2);
-
-            // console.log(sizeWidth, sizeHeight, drawX, drawY);
-            setInterval(function(){
-              canvas.getContext("2d").drawImage(video, drawX, drawY, sizeWidth, sizeHeight);
-            }, 1000/50);
-              console.log("video played");
-            //ビデオを再生
-            video.play();
-        });
-
-
-      }
+      // function drawVideo(){
+      //   // var canvas = document.getElementById("c");
+      //   var w = $(window).width();
+      //   var h = $(window).height();
+      //   var sizeWidth, sizeHeight, drawX, drawY;
+      // }
       function resizeCanvas(){
         var heroW = $(window).width();
         var heroH = $(window).height();
         $('.hero').attr('width', heroW);
         $('.hero').attr('height', heroH);
         $('.hero').css({'height':heroH});
-        $('#c').attr('width', heroW);
-        $('#c').attr('height', heroH);
+        $('.hero').css('background', 'url(../images/mail_sp.gif) no-repeat');
+        $('.hero').css('background-size', 'cover');
       }
-      drawVideo();
+      // drawVideo();
       $(window).on("load resize",function(){
         resizeCanvas();
-
-        //パララックス効果を作る
-        $('.parallax').parallaxBackground();
       });
-
+      // メッセージ送信後のアニメーション
+      function ripple(){
+          var $ripple = $(".contact_ripple");
+          var $icon = $(".mail_icon");
+          $ripple.addClass("contact_ripple_on");
+          $icon.addClass("mail_icon_up");
+          setTimeout(function() {
+                  $ripple.fadeOut(1500);
+                  $icon.removeClass("mail_icon_up");
+                  setTimeout(function(){
+                    $ripple.removeClass("contact_ripple_on");
+                    $ripple.fadeIn(10);
+                  }, 3000)
+          }, 3000);
+      }
 
     </script>
     <script src="js/material-components-web.min.js"></script>
