@@ -1936,6 +1936,13 @@
   background: url(/images/uwajima.png) center center/cover no-repeat fixed;
   overflow: hidden; }
 
+.map {
+  text-indent: -999px;
+  background: url(/images/map.svg) center center/contain no-repeat;
+  width: 24px;
+  height: 24px;
+  color: transparent; }
+
 .contact_ripple {
   position: fixed;
   top: 0;

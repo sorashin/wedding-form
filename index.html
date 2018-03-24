@@ -29,7 +29,7 @@
     </div>
     <div class="block03">
       <p class="block-text03"><img src="images/date.png" alt="DATE" width="45px" height="10px"><br>2018年6月9日</p>
-      <p class="block-text03"><img src="images/place.png" alt="PLACE" width="58px" height="10px"><br>二子玉川naturam（現MARKT）<a href="https://goo.gl/maps/br5NfDcLzh22" target="_blank">Map</a></p>
+      <p class="block-text03"><img src="images/place.png" alt="PLACE" width="58px" height="10px"><br>二子玉川naturam（現MARKT）<a class="map" href="https://goo.gl/maps/br5NfDcLzh22" target="_blank">Map</a></p>
       <p class="block-text03"><img src="images/fee.png" alt="FEE" width="33px" height="10px"><br>15000円</p>
       <p class="block-text03"><img src="images/dresscode.png" alt="DRESS CODE" width="102px" height="10px"><br>Tシャツ、ジーンズはご遠慮ください</p>
     </div>
@@ -104,22 +104,16 @@
       })
     </script>
     <script type="text/javascript">
-      // function drawVideo(){
-      //   // var canvas = document.getElementById("c");
-      //   var w = $(window).width();
-      //   var h = $(window).height();
-      //   var sizeWidth, sizeHeight, drawX, drawY;
-      // }
       function resizeCanvas(){
         var heroW = $(window).width();
         var heroH = $(window).height();
         $('.hero').attr('width', heroW);
         $('.hero').attr('height', heroH);
         $('.hero').css({'height':heroH});
-        $('.hero').css('background', 'url(../images/mail_sp.gif) no-repeat');
-        $('.hero').css('background-size', 'cover');
+        $('.hero').css('background', 'url(../images/mail_sp.gif) center center / cover no-repeat');
+        // $('.hero').css('background-size', 'cover');
       }
-      // drawVideo();
+
       $(window).on("load resize",function(){
         resizeCanvas();
       });
