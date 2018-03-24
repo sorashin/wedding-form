@@ -1,0 +1,42 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+libraries: #使用ライブラリを指定
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: latest
+
+handlers:
+ - url: /favicon\.ico
+   static_files: favicon.ico
+   upload: favicon\.ico
+
+ - url: /
+   static_files: index.html
+   upload: index.html
+
+ - url: /js
+   static_dir: js
+
+ - url: /css
+   static_dir: css
+
+ - url: /images
+   static_dir: images
+
+skip_files:
+- ^(.*/)?.*/node_modules/.*$
+- ^(assets/.*)
+- ^(build/.*)
+- ^(test/.*)
+- ^(templates/.*)
+- ^(node_modules/.*)
+
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.DS_Store$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$

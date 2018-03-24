@@ -1,10 +1,13 @@
+const path = require('path')
 module.exports = [{
   entry: './app.scss',
   output: {
     // This is necessary for webpack to compile
     // But we never use style-bundle.js
-    filename: 'style-bundle.js',
+    path: path.resolve(__dirname, 'js'),
+    filename: 'style-bundle.js'
   },
+  watch: true,
   module: {
     rules: [{
       test: /\.scss$/,
@@ -12,7 +15,7 @@ module.exports = [{
         {
           loader: 'file-loader',
           options: {
-            name: 'bundle.css',
+            name: '../css/bundle.css',
           },
         },
         { loader: 'extract-loader' },
@@ -38,8 +41,10 @@ module.exports = [{
 module.exports.push({
   entry: "./app.js",
   output: {
-    filename: "bundle.js"
+    path: path.resolve(__dirname, 'js'),
+    filename: "./bundle.js"
   },
+  watch: true,
   module: {
     loaders: [{
       test: /\.js$/,
