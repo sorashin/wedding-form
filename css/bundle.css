@@ -1888,7 +1888,7 @@
 .block01 {
   height: 480px;
   width: 100%;
-  background: url(/images/lemon.png) center center/cover no-repeat fixed;
+  background: url(/images/lemon.png) center center/cover no-repeat scroll;
   background-color: #999999;
   display: -ms-flexbox;
   display: flex;
@@ -1933,7 +1933,7 @@
   background-color: #666666;
   text-align: center;
   color: #ffffff;
-  background: url(/images/uwajima.png) center center/cover no-repeat fixed;
+  background: url(/images/uwajima.png) center center/cover no-repeat scroll;
   overflow: hidden; }
 
 .map {
