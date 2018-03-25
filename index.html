@@ -11,13 +11,31 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script type="text/javascript" src="js/jquery.serialize-object.js"></script>
   <script src="js/parallax-background.min.js"></script>
-  <title>Document</title>
+  <title>結婚お披露目パーティー参加連絡</title>
+  <!-- 共通項目 -->
+  <meta property="og:title" content="結婚お披露目パーティー参加連絡" />
+  <meta property="og:type" content="website" />
+  <!-- <meta property="og:url" content="ページのURL" /> -->
+  <meta property="og:image" content="https://wedding-form-prod.appspot.com/images/ogp.png" />
+  <meta property="og:site_name"  content="結婚お披露目パーティー参加連絡" />
+  <meta property="og:description" content="お披露目パーティーの参加連絡フォームです" />
+  <!-- Hotjar Tracking Code for https://wedding-form-prod.appspot.com/ -->
+  <script>
+      (function(h,o,t,j,a,r){
+          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+          h._hjSettings={hjid:825724,hjsv:6};
+          a=o.getElementsByTagName('head')[0];
+          r=o.createElement('script');r.async=1;
+          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+          a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
 </head>
 <body class="mdc-typography">
     <div class="contact_ripple"></div>
     <p class="mail_icon">THANK YOU!</p>
     <div class="hero">
-
+      <a href="#"><span></span>Scroll</a>
     </div>
     <div class="block01">
       <p class="block-head01">
@@ -25,11 +43,11 @@
       </p>
     </div>
     <div class="block02">
-      <p class="block-text02">この度、中島慎太郎と赤松萌は2018年5月2日をもって、家族となることになりました。<br><br>２人の新しいスタートを、お世話になった皆さんと一緒に切るために、ゼミ生とその仲間たちで<br>ささやかなパーティーを開こうと思います。<br><br>2人の出身地愛媛の食材を織り交ぜた<br>フレンチフルコースと飲み放題、<br>そしてインタラクティブコンテンツで、<br>みなさんをお待ちしています。<br><br>期日は2018年6月9日！<br>よろしければスケジュールをあけてご参加ください。<br>みなさんにお会いできることを楽しみにしています。</p>
+      <p class="block-text02">この度、中島慎太郎と赤松萌は2018年5月2日をもって、夫婦となることになりました。<br><br>２人の新しいスタートを、お世話になった皆さんと一緒に切るために、ゼミ生とその仲間たちで<br>ささやかなパーティーを開こうと思います。<br><br>2人の出身地愛媛の食材を織り交ぜた<br>フレンチフルコースと飲み放題、<br>そしてインタラクティブコンテンツで、<br>みなさんをお待ちしています。<br><br>期日は2018年6月9日！<br>よろしければスケジュールをあけてご参加ください。<br>みなさんにお会いできることを楽しみにしています。</p>
     </div>
     <div class="block03">
       <p class="block-text03"><img src="images/date.png" alt="DATE" width="45px" height="10px"><br>2018年6月9日</p>
-      <p class="block-text03"><img src="images/place.png" alt="PLACE" width="58px" height="10px"><br>二子玉川naturam（現MARKT）<a href="https://goo.gl/maps/br5NfDcLzh22" target="_blank">Map</a></p>
+      <p class="block-text03"><img src="images/place.png" alt="PLACE" width="58px" height="10px"><br>二子玉川naturam（現MARKT）<a class="map" href="https://goo.gl/maps/br5NfDcLzh22" target="_blank">Map</a></p>
       <p class="block-text03"><img src="images/fee.png" alt="FEE" width="33px" height="10px"><br>15000円</p>
       <p class="block-text03"><img src="images/dresscode.png" alt="DRESS CODE" width="102px" height="10px"><br>Tシャツ、ジーンズはご遠慮ください</p>
     </div>
@@ -104,22 +122,24 @@
       })
     </script>
     <script type="text/javascript">
-      // function drawVideo(){
-      //   // var canvas = document.getElementById("c");
-      //   var w = $(window).width();
-      //   var h = $(window).height();
-      //   var sizeWidth, sizeHeight, drawX, drawY;
-      // }
       function resizeCanvas(){
         var heroW = $(window).width();
         var heroH = $(window).height();
+        var ua = navigator.userAgent;
         $('.hero').attr('width', heroW);
         $('.hero').attr('height', heroH);
         $('.hero').css({'height':heroH});
-        $('.hero').css('background', 'url(../images/mail_sp.gif) no-repeat');
-        $('.hero').css('background-size', 'cover');
+
+        if (ua.indexOf('iPhone') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0) {
+            $('.hero').css('background', 'url(../images/mail_sp.gif) center center / cover no-repeat');
+        } else if (ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0) {
+            $('.hero').css('background', 'url(../images/mail_sp.gif) center center / cover no-repeat');
+        } else {
+            $('.hero').css('background', 'url(../images/mail_pc.gif) center center / cover no-repeat');
+        }
+        // $('.hero').css('background-size', 'cover');
       }
-      // drawVideo();
+
       $(window).on("load resize",function(){
         resizeCanvas();
       });
