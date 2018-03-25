@@ -46,23 +46,26 @@
       <p class="block-text02">この度、中島慎太郎と赤松萌は2018年5月2日をもって、夫婦となることになりました。<br><br>２人の新しいスタートを、お世話になった皆さんと一緒に切るために、ゼミ生とその仲間たちで<br>ささやかなパーティーを開こうと思います。<br><br>2人の出身地愛媛の食材を織り交ぜた<br>フレンチフルコースと飲み放題、<br>そしてインタラクティブコンテンツで、<br>みなさんをお待ちしています。<br><br>期日は2018年6月9日！<br>よろしければスケジュールをあけてご参加ください。<br>みなさんにお会いできることを楽しみにしています。</p>
     </div>
     <div class="block03">
-      <p class="block-text03"><img src="images/date.png" alt="DATE" width="45px" height="10px"><br>2018年6月9日</p>
-      <p class="block-text03"><img src="images/place.png" alt="PLACE" width="58px" height="10px"><br>二子玉川naturam（現MARKT）<a class="map" href="https://goo.gl/maps/br5NfDcLzh22" target="_blank">Map</a></p>
+      <p class="block-text03"><img src="images/date.png" alt="DATE" width="45px" height="10px"><br>2018年6月9日（土）<br><br>12:30　受付開始<br>13:00　開始<br>15:30　終了</p>
+      <p class="block-text03"><img src="images/place.png" alt="PLACE" width="58px" height="10px"><br>二子玉川naturam（現MARKT）<span class="map"><a href="https://goo.gl/maps/br5NfDcLzh22" target="_blank">MAP</a></span></p>
       <p class="block-text03"><img src="images/fee.png" alt="FEE" width="33px" height="10px"><br>15000円</p>
       <p class="block-text03"><img src="images/dresscode.png" alt="DRESS CODE" width="102px" height="10px"><br>Tシャツ、ジーンズはご遠慮ください</p>
+      <div class="shikoku">
+        <img src="/images/shikoku.png" alt="四国">
+      </div>
     </div>
     <form id="test-form">
       <section class="my-text-wrap">
         <div class="my-input mdc-text-field" data-mdc-auto-init="MDCTextField">
-          <input type="text" id="my-text-field" class="mdc-text-field__input" name="name" placeholder="" aria-controls="my-text-field-helper-text"/>
-          <label for="my-text-field" class="mdc-floating-label">名前</label>
+          <input required type="text" id="my-text-field-name" class="mdc-text-field__input" name="name" placeholder="" aria-controls="my-text-field-name-helper-text"/>
+          <label for="my-text-field-name" class="mdc-floating-label">名前</label>
           <div class="mdc-line-ripple"></div>
         </div>
       </section>
       <section class="my-text-wrap">
         <div class="my-input mdc-text-field" data-mdc-auto-init="MDCTextField">
-          <input type="text" id="my-text-field" class="mdc-text-field__input" name="mail" placeholder="" aria-controls="my-text-field-helper-text"/>
-          <label for="my-text-field" class="mdc-floating-label">連絡先メールアドレス</label>
+          <input required type="text" id="my-text-field-email" class="mdc-text-field__input" name="mail" placeholder="" aria-controls="my-text-field-email-helper-text"/>
+          <label for="my-text-field-email" class="mdc-floating-label">連絡先メールアドレス</label>
           <div class="mdc-line-ripple"></div>
         </div>
       </section>
@@ -90,8 +93,8 @@
       </section>
       <section class="my-text-wrap">
         <div class="my-input mdc-text-field mdc-text-field--textarea" data-mdc-auto-init="MDCTextField">
-          <textarea type="text" id="my-text-field" class="mdc-text-field__input" rows="4" cols="40" name="comment" placeholder="" aria-controls="my-text-field-helper-text"/></textarea>
-          <label for="my-text-field" class="mdc-floating-label">備考</label>
+          <textarea type="text" id="my-text-field-comment" class="mdc-text-field__input" rows="4" cols="40" name="comment" placeholder="" aria-controls="my-text-field-comment-helper-text"/></textarea>
+          <label for="my-text-field-comment" class="mdc-floating-label">備考</label>
           <div class="mdc-line-ripple"></div>
         </div>
       </section>
@@ -108,6 +111,9 @@
         url = 'https://script.google.com/macros/s/AKfycbx224N8Gy9HB8EeZS_PbF69e0Wg1H7yYESGiLQiCwRI0DeD9OM/exec?firstName=Joel'
 
       $('#submit-form').on('click', function(e) {
+        if (!isFilled()) {
+            return;
+        }
         // alert("ボタンクリック");
       e.preventDefault();
       var jqxhr = $.ajax({
@@ -157,6 +163,17 @@
                     $ripple.fadeIn(10);
                   }, 3000)
           }, 3000);
+      }
+      //入力確認
+      function isFilled() {
+        var $name = $("#my-text-field-name");
+        var $email = $("#my-text-field-email");
+        if ($name.val() && $email.val()) {
+            return true;
+        } else {
+            notificationShow("空欄を埋めてください");
+            return false;
+        }
       }
 
     </script>

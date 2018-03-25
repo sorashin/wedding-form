@@ -1919,16 +1919,16 @@
 
 .block-text03 {
   margin-top: 48px;
-  font-size: 14px; }
+  font-size: 14px;
+  font-weight: 500; }
   .block-text03:first-child {
     margin-top: 60px; }
   .block-text03:last-child {
     margin-bottom: 60px; }
   .block-text03 img {
-    margin-bottom: 20px; }
+    margin-bottom: 16px; }
 
 .block03 {
-  height: 480px;
   width: 100%;
   background-color: #666666;
   text-align: center;
@@ -1937,11 +1937,27 @@
   overflow: hidden; }
 
 .map {
-  text-indent: -999px;
-  background: url(/images/map.svg) center center/contain no-repeat;
-  width: 24px;
-  height: 24px;
-  color: transparent; }
+  position: relative; }
+  .map:before {
+    content: "";
+    display: inline-block;
+    background: url(/images/map.svg) center center/contain no-repeat;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 0;
+    top: -3px; }
+  .map a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
+    margin-left: 24px; }
+
+.shikoku {
+  margin: 32px 0 60px 0; }
+  .shikoku img {
+    width: 120px;
+    height: auto; }
 
 .contact_ripple {
   position: fixed;
